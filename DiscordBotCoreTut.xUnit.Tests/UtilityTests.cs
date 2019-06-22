@@ -10,7 +10,7 @@ namespace DiscordBotCoreTut.xUnit.Tests
         {
             const int expected = 5;
             var actual = Utilities.MyUtility(expected);
-            Assert.Equal(expected, actual);
+            Assert.Equal(expected, actual + 1);
         }
     }
 }
