@@ -1,5 +1,5 @@
 version: 1.0.{build}
-image: .NET Core SDK 2.2.203
+image: Visual Studio 2017
 skip_tags: true
 dotnet_csproj:
   patch: true
@@ -12,4 +12,4 @@ test_script:
   - ps: >-
       nuget install OpenCover -OutputDirectory packages -Version 4.7.922
 
-      .\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe -register:user -target:"$env:xunit20\xunit.console" -targetargs:"DiscordBotCoreTut.xUnit.Tests\bin\Release\netcoreapp2.2\DiscordBotCoreTut.xUnit.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[DiscordBotCoreTut*]* -[DiscordBotCore*]*Tests.*"
+      .\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe -register:user -target:"C:\Tools\xUnit20\xunit.console" -targetargs:"DiscordBotCoreTut.xUnit.Tests\bin\Release\netcoreapp2.2\DiscordBotCoreTut.xUnit.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[DiscordBotCoreTut*]* -[DiscordBotCore*]*Tests.*"
