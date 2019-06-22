@@ -1,5 +1,5 @@
 version: 1.0.{build}
-image: Visual Studio 2017
+image: Visual Studio 2019
 skip_tags: true
 dotnet_csproj:
   patch: true
@@ -10,6 +10,7 @@ build_script:
   - dotnet build -c Release
 test_script:
   - ps: >-
+      dir C:\Tools\xUnit20\
       nuget install OpenCover -OutputDirectory packages -Version 4.7.922
 
       .\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe -register:user -target:"C:\Tools\xUnit20\xunit.console" -targetargs:"DiscordBotCoreTut.xUnit.Tests\bin\Release\netcoreapp2.2\DiscordBotCoreTut.xUnit.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[DiscordBotCoreTut*]* -[DiscordBotCore*]*Tests.*"
