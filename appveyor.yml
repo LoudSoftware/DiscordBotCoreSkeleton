@@ -15,4 +15,4 @@ after_test:
   - cmd: nuget install OpenCover -OutputDirectory packages -Version 4.7.922
   - cmd: dotnet tool install coveralls.net --version 1.0.0 --tool-path tools
   - cmd: .\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe -register:user -target:"dotnet.exe" -targetargs:"DiscordBotCoreTut.xUnit.Tests\bin\Release\netcoreapp2.2\DiscordBotCoreTut.xUnit.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[DiscordBotCoreTut*]* -[DiscordBotCore*]*Tests.*" -oldstyle
-  - cmd: tools\csmacnz.coveralls.exe --opencover -i coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN
+  - cmd: tools\csmacnz.coveralls.exe --opencover -i coverage.xml --repoToken $env:COVERALLS_REPO_TOKEN --commitId $env:APPVEYOR_REPO_COMMIT --commitBranch $env:APPVEYOR_REPO_BRANCH --commitAuthor $env:APPVEYOR_REPO_COMMIT_AUTHOR --commitEmail $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL --commitMessage $env:APPVEYOR_REPO_COMMIT_MESSAGE --jobId $env:APPVEYOR_JOB_ID
