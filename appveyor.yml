@@ -9,4 +9,7 @@ dotnet_csproj:
 build_script:
   - dotnet build -c Release
 test_script:
-  - .\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console" -targetargs:"DiscordBotCoreTut.xUnit.Tests\bin\Release\netcoreapp2.2\DiscordBotCoreTut.xUnit.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[DiscordBotCoreTut*]* -[DiscordBotCore*]*Tests.*"
+  - ps: >-
+      nuget install OpenCover -OutputDirectory packages -Version 4.7.922
+
+      .\packages\OpenCover.4.7.922\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console" -targetargs:"DiscordBotCoreTut.xUnit.Tests\bin\Release\netcoreapp2.2\DiscordBotCoreTut.xUnit.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[DiscordBotCoreTut*]* -[DiscordBotCore*]*Tests.*"
